@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlarmClock.cs" />
+    <Compile Include="..\..\..\..\..\Desktop\Projekt i C#\2-2-digital-vackarklocka\2-2-digital-vackarklocka\AlarmClock.cs">
+      <Link>AlarmClock.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

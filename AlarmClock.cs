@@ -68,33 +68,34 @@ namespace _2_2_digital_vackarklocka
 
         }
 
-        public AlarmClock(int hour, int minute)
+        public AlarmClock(int hour, int minute):this(hour,minute,0,0)
         {
         
         }
 
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
-            alarmHour = _alarmHour;
-            alarmMinute = _alarmMinute;
-            hour = _hour;
-            minute = _minute;
+            AlarmHour = alarmHour;
+            AlarmMinute = alarmMinute;
+            Hour = hour;
+            Minute = minute;
         }
 
 
         //Metoderna: TickTock och ToString.
         public bool TickTock()
         {
-           
-            if (_minute > 0 && _minute < 59)
+            
+            if (_minute < 59)
             {
-                _minute++;
+                _minute++;   
             }
+               
             else
             {
                 _minute = 0;
 
-                if(_hour > 1 && _hour < 23)
+                if(_hour < 23)
                 {
                     _hour++;
                 }
@@ -114,9 +115,9 @@ namespace _2_2_digital_vackarklocka
 
         public string ToString()
         {
-            _hour = 8;
-            _minute = 8;
-            string ClockTest = String.Format("{0}:{1}", _hour,_minute);
+          
+            string ClockTest = String.Format("{0, 4}:{1:D2} <{2}:{3:D2}>", _hour,_minute, _alarmHour, _alarmMinute);
+
             return ClockTest;
         }
 
