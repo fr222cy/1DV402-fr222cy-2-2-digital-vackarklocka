@@ -9,8 +9,8 @@ namespace _2_2_digital_vackarklocka
 
     class Program
     {
-
-
+        private static string HorizontalLine;
+        
         static void Main(string[] args)
         {
 
@@ -26,7 +26,7 @@ namespace _2_2_digital_vackarklocka
 
             //Test 3
             ViewTestHeader("Test 3. \nTest av konstruktorn med fyra parametrar (13, 42 ,7 ,35).");
-            AlarmClock testC3 = new AlarmClock(13, 24, 7, 35);
+            AlarmClock testC3 = new AlarmClock(13, 59, 7, 35);
             Console.WriteLine(testC3.ToString());
 
             //Test 4
@@ -46,7 +46,7 @@ namespace _2_2_digital_vackarklocka
             AlarmClock testC6 = new AlarmClock();
             
 
-
+            // Testar om det kastast undantag i egenskaperna.
             try
             {
                 testC6.Hour = 24;
@@ -62,7 +62,7 @@ namespace _2_2_digital_vackarklocka
             }
             catch (ArgumentException)
             {
-                ViewErrorMessage("Timmen är inte i intervallet 0-23.");
+                ViewErrorMessage("Minuten är inte i intervallet 0-59.");
             }
             try
             {
@@ -143,18 +143,20 @@ namespace _2_2_digital_vackarklocka
             }
 
         }
-
+        //Metoden jag anropar när jag vill ha ett felmeddelande.
         static void ViewErrorMessage(string message)
         {
             Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
+        //Metoden jag anropar när jag vill ha en header.
         static void ViewTestHeader(string header)
-        {
-            
-            Console.Write("==================================\n");
+        { 
+
+            HorizontalLine = ("===============================\n");
+
+            Console.Write(HorizontalLine);
             Console.WriteLine(header);
             Console.WriteLine();
             

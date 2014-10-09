@@ -32,7 +32,7 @@ namespace _2_2_digital_vackarklocka
         {
             get { return _alarmMinute; }
             set {
-                    if (value > 60 || value < 0)
+                    if (value > 59 || value < 0)
                     {
                         throw new ArgumentException();
                     }
@@ -54,7 +54,7 @@ namespace _2_2_digital_vackarklocka
         {
             get { return _minute; }
             set {
-                    if(value < 0 || value > 60)
+                    if(value < 0 || value > 59)
                     {
                         throw new ArgumentException();
                     }    
@@ -86,25 +86,27 @@ namespace _2_2_digital_vackarklocka
         public bool TickTock()
         {
             
-            if (_minute < 59)
+            if (Minute < 59)
             {
-                _minute++;   
+                Minute++;   
             }
                
             else
             {
-                _minute = 0;
+                Minute = 0;
 
-                if(_hour < 23)
+                if(Hour < 23)
                 {
-                    _hour++;
+                    Hour++;
                 }
                 else
                 {
-                    _hour = 0;
+                     Hour= 0;
                 }
             }
-            if (_alarmHour == _hour && _alarmMinute == _minute)
+           
+
+            if (AlarmHour == Hour && AlarmMinute == Minute)
             {
                 return true;
             }
@@ -113,12 +115,12 @@ namespace _2_2_digital_vackarklocka
         }
 
 
-        public string ToString()
+        public override string ToString()
         {
           
-            string ClockTest = String.Format("{0, 4}:{1:D2} <{2}:{3:D2}>", _hour,_minute, _alarmHour, _alarmMinute);
+            string Presentation = String.Format("{0, 4}:{1:D2} <{2}:{3:D2}>", _hour,_minute, _alarmHour, _alarmMinute);
 
-            return ClockTest;
+            return Presentation;
         }
 
     }    
